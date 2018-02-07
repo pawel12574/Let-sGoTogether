@@ -1,0 +1,15 @@
+
+
+@media screen and (min-width: 991px){
+  .defaultAvatar{
+     padding: 10px 5px;
+  }
+}  
+
+
+@media screen and (max-width: 991px){
+  .defaultAvatar{
+     padding: 15px 5px;
+  }
+}  
+    

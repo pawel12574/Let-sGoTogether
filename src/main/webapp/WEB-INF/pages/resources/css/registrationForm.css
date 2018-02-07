@@ -1,0 +1,50 @@
+.form{
+  float:left;
+  box-sizing:border-box;
+  padding:40px;
+  position:relative;
+  top:15%;    
+  max-width:515px;
+  margin-right:auto;
+  border-radius:5px;
+}
+
+.textbox{
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 1px solid;
+  box-sizing:border-box;
+  padding:10px;
+  margin-bottom:10px;
+  margin-top:10px;
+}
+
+.textbox:focus{
+  outline:none;
+   border:rgba(24,149,215,1) 2px solid;
+   color:rgba(24,149,215,1);
+}
+
+.button{
+  height:50px;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 0px solid;
+  box-sizing:border-box;
+  padding:10px;
+  margin-bottom:30px;
+  background:#90c843;
+  color:#FFF;
+  font-weight:bold;
+  transition:background .4s;
+  cursor:pointer;
+}
+
+.button:hover{
+  background:#80b438;
+  }
+  
+.button:disabled{
+  background:#DC143C;
+  cursor:not-allowed;
+  }

@@ -1,0 +1,26 @@
+@media only screen and (max-width: 992px) {
+	.adminManage {
+		box-sizing: border-box;
+		position: relative;
+		top: 15%;
+		max-width: 300px;
+		margin-right: auto;
+		border-radius: 5px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.adminManage {
+		/*float: left;*/
+		box-sizing: border-box;
+		padding-right: 150px;
+		position: relative;
+		top: 15%;
+		width: 450px;
+		margin-right: auto;
+		border-radius: 5px;
+	}
+	.title{
+	    padding-left : 40%;
+	}
+}
