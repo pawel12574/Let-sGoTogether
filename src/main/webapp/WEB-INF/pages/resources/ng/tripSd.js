@@ -87,14 +87,14 @@ angular.module('myApp').controller('addTripSdController', function($scope, $time
 			        var fromAddress = document.getElementById('fromLat').value+", "+ document.getElementById('fromLng').value;
 			        var destAddress = document.getElementById('toLat').value+", "+ document.getElementById('toLng').value;
 			       
-			        var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + fromAddress + "&key=AIzaSyBvvf99V9LS-TMpS3GNDyEpArChQgBeJxo";
+			        var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + fromAddress + "&key=AIzaSyAHKAiVjd7CTF1M5PF7g2G_i3cftTquKiU";
 			        $.getJSON(url, function (data) {
 			           
 			                var address = data.results[0].formatted_address;
 			                document.getElementById('fromAddress').value = address;
 			            
 			        })
-			        url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + destAddress + "&key=AIzaSyBvvf99V9LS-TMpS3GNDyEpArChQgBeJxo";
+			        url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + destAddress + "&key=AIzaSyAHKAiVjd7CTF1M5PF7g2G_i3cftTquKiU";
 			        $.getJSON(url, function (data) {
 			            
 			                var address = data.results[0].formatted_address;

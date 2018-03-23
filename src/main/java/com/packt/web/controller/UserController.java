@@ -146,7 +146,7 @@ public class UserController {
 			emailService.sendMail("eliasz.paw@gmail.com",
 					               user.getUsername(),
 		    		              "Let'sGoTogether",
-		    		              "Kliknij w link, aby aktywowaæ konto "+url+"");
+		    		              "Kliknij w link, aby aktywowa? konto "+url+"");
 
 			Role role = new Role();
 			PasswordToken passToken = new PasswordToken();

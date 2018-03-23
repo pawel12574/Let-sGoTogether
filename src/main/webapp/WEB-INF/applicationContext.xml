@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <context:component-scan base-package="com.packt.web.controller" />
+    <context:component-scan base-package="com.packt.web.bean" />
+    <context:component-scan base-package="com.packt.web.Dao" />
+    <context:component-scan base-package="com.packt.web." />
+    <context:annotation-config />
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/" />
+<property name="suffix" value=".jsp" />
+</bean>
+
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://localhost:3306/web?autoReconnect=true&amp;useUnicode=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8" />
+    <property name="connectionProperties">
+    <props>
+        <prop key="useUnicode">true</prop>
+        <prop key="characterEncoding">utf-8</prop>
+        <prop key="CharSet">utf8"></prop>
+        <prop key="hibernate.hbm2ddl.import_files">import.sql</prop>
+    </props>
+</property>
+
+    <property name="username" value="root" />
+    <property name="password" value="root" />
+</bean>
+
+<tx:annotation-driven />
+<bean id="entityManagerFactory"
+ class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+   <property name="packagesToScan">
+    <list>
+        <value>com.packt.web.bean</value>
+        <value>com.packt.web.Dao</value>
+        <value>com.packt.web.service</value>
+        <value>com.packt.web.controller</value>
+    </list>
+</property>
+    <property name="jpaVendorAdapter">
+        <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+            <property name="showSql" value="false" />
+            <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+        </bean>
+    </property>
+    <property name="jpaProperties">
+        <props>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+            <prop key="hibernate.hbm2ddl.import_files">import.sql</prop>
+        </props>
+    </property>
+</bean>
+
+
+<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+</bean>
+
+<bean id="multipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+</bean>
+</beans>
