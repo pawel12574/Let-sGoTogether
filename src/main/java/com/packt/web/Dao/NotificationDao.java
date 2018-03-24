@@ -1,23 +1,18 @@
 package com.packt.web.Dao;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.criteria.Expression;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.packt.web.bean.Notification;
 import com.packt.web.bean.Trip;
-import com.packt.web.bean.TripSd;
 import com.packt.web.bean.User;
 import com.packt.web.service.DateService;
 
@@ -84,7 +79,7 @@ public class NotificationDao implements NotificationDaoInterface{
 		
 	}
 	
-	public Notification findOne(int id) {
+	public Notification findOne(Long id) {
 		  Query query=entityManager.createQuery("select n from Notification n left join fetch n.informed where n.id='"+id+"'");
 		  Notification notification = (Notification) query.getSingleResult();
 		  if(notification!=null){
@@ -113,7 +108,7 @@ public class NotificationDao implements NotificationDaoInterface{
 		
 	}
     
-    public void removeByTripId(int id) {
+    public void removeByTripId(Long id) {
 		  Query query = entityManager.createQuery("delete Notification where trip.id="+id+"");
 		  query.executeUpdate();
 		

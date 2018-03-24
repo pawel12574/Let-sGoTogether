@@ -18,24 +18,19 @@ import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name = "userrating")
-public class UserRating implements Serializable{
+public class UserRating extends AbstractEntity implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-    @Id
-	@GeneratedValue
-	int id;
-	
-    @NotNull
 	@Min(value = 1)
     @Max(value = 5)
     @Column(name = "rating", nullable = false)
-    private Integer rating;
+    private int rating;
 
     @ManyToOne  //oceniany
     private User user;
     
-    @ManyToOne // oceniaj¹cy
+    @ManyToOne // oceniajÄ…cy
     private User author;
     
     @OneToOne
@@ -44,26 +39,17 @@ public class UserRating implements Serializable{
 	
 	public UserRating(){}
     
-	public UserRating(int id, Integer rating, User user) {
-		super();
-		this.id = id;
+	public UserRating(int rating, User user) {
 		this.rating = rating;
 		this.user = user;
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Integer getRating() {
+	public int getRating() {
 		return rating;
 	}
 
-	public void setRating(Integer rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 	
@@ -91,25 +77,4 @@ public class UserRating implements Serializable{
 		this.author = author;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserRating other = (UserRating) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
 }

@@ -10,9 +10,9 @@ public interface NotificationServiceInterface {
 
 	public List<Notification> getAllNotification(User user);
 	public List<Notification> getNonConfirmedNotification(User user, String type);
-	public Notification findById(int id);
+	public Notification findById(Long id);
 	public void save(Notification notification);
-	public void remove(int id);//trip id
+	public void remove(Long id);//trip id
 	public void remove(Notification notification);
 	public void merge(Notification notification);
 	public void update(Notification notification);

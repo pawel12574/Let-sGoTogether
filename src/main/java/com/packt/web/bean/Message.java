@@ -27,13 +27,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="message")
-public class Message implements Serializable {
+public class Message extends AbstractEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue
-	private int id;
 	
 	@Column
 	@NotEmpty
@@ -60,14 +56,7 @@ public class Message implements Serializable {
     public Message(){
     	
     };
-    
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getContents() {
 		return contents;
@@ -111,29 +100,10 @@ public class Message implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", contents=" + contents + ", created=" + created + ", author=" + author + "]";
+		return "Message{" +
+				"contents='" + contents + '\'' +
+				", created=" + created +
+				", author=" + author +
+				'}';
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Message other = (Message) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-
 }

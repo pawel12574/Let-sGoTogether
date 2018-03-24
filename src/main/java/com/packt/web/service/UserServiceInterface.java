@@ -9,11 +9,11 @@ import com.packt.web.bean.User;
 public interface UserServiceInterface {
 	
 	public User getUser(String login);
-	public User getUser(int id);
+	public User getUser(Long id);
 	public User getLoggedUser();
 	public User getLoggedUserFromContext();
 	public String getLoggedUserName();
-	public void removeUser(int id);
+	public void removeUser(Long id);
 	public void mergeUser(User user);
 	public String checkEmailExist(String email);
 	public List<Trip> getMyOwnTrip();

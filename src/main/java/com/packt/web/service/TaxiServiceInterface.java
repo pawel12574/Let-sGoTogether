@@ -8,8 +8,8 @@ public interface TaxiServiceInterface {
 	
 	public void save(Taxi taxi);
 	public List<Taxi> getAll();
-	public Taxi getById(int id);
-	public void remove(int id);
+	public Taxi getById(Long id);
+	public void remove(Long id);
 	public void update(Taxi taxi);
 
 }

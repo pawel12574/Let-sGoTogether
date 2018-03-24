@@ -19,11 +19,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role extends AbstractEntity {
 
-	@Id
-	@GeneratedValue
-	private int id;
 	
     @OneToOne
     @JsonIgnore
@@ -39,13 +36,6 @@ public class Role {
 		this.role = role;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public User getUser() {
 		return user;
@@ -63,17 +53,5 @@ public class Role {
 		this.role = role;
 	}
 
-	@Override
-	public int hashCode() {
-		return this.id;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null) return false;
-		if (!(obj instanceof  Role)) return false;
-		
-		Role other=(Role) obj;
-		return this.id == other.id;
-	}
 }

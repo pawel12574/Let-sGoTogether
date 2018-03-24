@@ -36,7 +36,7 @@ public class TaxiController {
 	}
 	
 	@RequestMapping(value="/taxi/get/{id}", method = RequestMethod.GET)
-	public @ResponseBody Taxi getTaxi(@PathVariable int id){
+	public @ResponseBody Taxi getTaxi(@PathVariable Long id){
 		return taxiService.getById(id);
 	}
 	
@@ -46,7 +46,7 @@ public class TaxiController {
 	}
 	
 	@RequestMapping(value="/taxi/remove/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<String> remove(@PathVariable int id){
+	public ResponseEntity<String> remove(@PathVariable Long id){
 		taxiService.remove(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

@@ -18,7 +18,7 @@ public class RoleDao implements RoleDaoInterface{
 	 private EntityManager entityManager;
 	     
 	  @Transactional  
-	  public Role getRole(int id) {
+	  public Role getRole(Long id) {
 	        
 		  Role role = entityManager.find(Role.class, id);
 		  return role;

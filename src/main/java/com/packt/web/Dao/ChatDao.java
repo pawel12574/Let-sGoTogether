@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.packt.web.bean.Chat;
-import com.packt.web.bean.Message;
 
 @Transactional
 @Repository
@@ -20,7 +19,7 @@ public class ChatDao implements ChatDaoInterface {
 	private EntityManager entityManager;
 	
 	
-	public Chat getChatByTripId(int id) {
+	public Chat getChatByTripId(Long id) {
 		Query query=entityManager.createQuery("select c from Chat c left join fetch c.messages where c.trip.id='"+id+"'");
 		List<Chat> result = query.getResultList();
 		if(result.isEmpty())
@@ -30,7 +29,7 @@ public class ChatDao implements ChatDaoInterface {
 		
 	}
 	
-	public void remove(int chatId){
+	public void remove(Long chatId){
 		Query query=entityManager.createQuery("delete Chat where id="+chatId+"");
 		query.executeUpdate();
 	}

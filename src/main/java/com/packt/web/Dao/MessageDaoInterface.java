@@ -7,9 +7,9 @@ import com.packt.web.bean.Message;
 
 public interface MessageDaoInterface {
 	
-	public List<Message> getMessageByTrip(int id);
-	public Message getMessageById(int id);
-	public void removeMessage(int id);
+	public List<Message> getMessageByTrip(Long id);
+	public Message getMessageById(Long id);
+	public void removeMessage(Long id);
 	public void merge(Message m);
     public Message addMessage(Message message);
 }

@@ -10,10 +10,8 @@ import javax.persistence.Query;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.packt.web.bean.Role;
 import com.packt.web.bean.Trip;
 import com.packt.web.bean.User;
 import com.packt.web.service.DateService;
@@ -54,7 +52,7 @@ public class UserDao implements UserDaoInterface {
 	}
 
 	@Transactional
-	public User getUser(String username) {  // nie dzia³a gdy wywo³uje sie metode w usercontroller change password
+	public User getUser(String username) {  // nie dziaï¿½a gdy wywoï¿½uje sie metode w usercontroller change password
 		Query query = entityManager.createQuery("select u from User u left join fetch u.role where username='" + username + "'");
 
 		List<User> result = new ArrayList<User>();
@@ -69,7 +67,7 @@ public class UserDao implements UserDaoInterface {
 	}
 	
 	@Transactional
-	public User getUser(int id) {
+	public User getUser(Long id) {
 		Query query = entityManager.createQuery("select u from User u where u.id="+id+"");
 		User user=(User) query.getResultList().get(0);
 		user.setAge(DateService.getAge(user.getBirthDate()));

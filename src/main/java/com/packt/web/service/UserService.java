@@ -31,7 +31,7 @@ public class UserService implements UserServiceInterface {
 		return userDao.getUser(username);
 	}
 	
-	public User getUser(int id){
+	public User getUser(Long id){
 		return userDao.getUser(id);
 	}
 	
@@ -50,7 +50,7 @@ public class UserService implements UserServiceInterface {
 		return userDao.getLoggedUserName();
 	}
 	
-	public void removeUser(int id){
+	public void removeUser(Long id){
 		User user = userDao.getUser(id);
 		userDao.removeUser(user);
 	}

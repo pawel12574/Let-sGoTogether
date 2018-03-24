@@ -2,9 +2,9 @@ package com.packt.web.dto;
 
 public class UserRatingDto {
 
-	
+
 	int rate;
-	int tripId;
+	Long tripId;
 	
 	
 	public int getRate() {
@@ -13,10 +13,10 @@ public class UserRatingDto {
 	public void setRate(int rate) {
 		this.rate = rate;
 	}
-	public int getTripId() {
+	public Long getTripId() {
 		return tripId;
 	}
-	public void setTripId(int tripId) {
+	public void setTripId(Long tripId) {
 		this.tripId = tripId;
 	}
 	

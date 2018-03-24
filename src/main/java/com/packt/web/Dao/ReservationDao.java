@@ -30,7 +30,7 @@ public class ReservationDao implements ReservationDaoInterface {
 		entityManager.merge(r);	
 	}
 	
-	public List<Reservation> getReservationByTripId(int id){
+	public List<Reservation> getReservationByTripId(Long id){
 		Query query = entityManager.createQuery("select r from Reservation r where r.trip.id="+id+"");
 		List<Reservation> result = query.getResultList();
 		if(!result.isEmpty())

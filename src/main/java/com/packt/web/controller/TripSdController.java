@@ -57,7 +57,7 @@ public class TripSdController {
 	}
 	
 	@RequestMapping(value="/tripSd/remove/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<String> remove(@PathVariable int id){
+	public ResponseEntity<String> remove(@PathVariable Long id){
 		
 		tripSdService.removeTrip(id, userService.getLoggedUser());//id tripSD, logged user object
 		return new ResponseEntity<>(HttpStatus.OK);

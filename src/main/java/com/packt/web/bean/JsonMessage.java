@@ -1,6 +1,7 @@
 package com.packt.web.bean;
 
 public class JsonMessage {
+
 	String message="";
 
 	public String getMessage() {

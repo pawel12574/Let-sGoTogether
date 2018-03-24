@@ -10,7 +10,7 @@ import com.packt.web.bean.User;
 public interface TripSdDaoInterface {
 	
 	public List<TripSd> getTripSd();
-	public TripSd getTripSdById(int id);
+	public TripSd getTripSdById(Long id);
 	public List<TripSd> getTripByCoordinates(String fromLat, String fromLng, String toLat, String toLng, Date date, String rangeFrom, String rangeTo);
 	public List<TripSd> getAllUserTrip(User user);
 	public void saveTripSd(TripSd trip);

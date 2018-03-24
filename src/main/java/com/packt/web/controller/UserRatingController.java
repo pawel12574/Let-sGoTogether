@@ -54,14 +54,14 @@ public class UserRatingController {
 	}
 	
 	@RequestMapping(value="/rating/user/{id}", method=RequestMethod.GET)
-    public @ResponseBody String getAvgRating(@PathVariable int id){//user.id
+    public @ResponseBody String getAvgRating(@PathVariable Long id){//user.id
 		
 		return userRatingService.getUserRating(id);
 		
 	}
 	
 	@RequestMapping(value="/rating/isAvaiable/{id}", method=RequestMethod.GET)
-	public @ResponseBody boolean isRatingAvaiableforTrip(@PathVariable int id) throws ParseException{  //trip.id
+	public @ResponseBody boolean isRatingAvaiableforTrip(@PathVariable Long id) throws ParseException{  //trip.id
 		Trip trip = tripService.getTripByIdFetchUsers(id);
 		User user = userService.getLoggedUser();
 		Date endDate = DateService.stringToDate(trip.getEndDate());

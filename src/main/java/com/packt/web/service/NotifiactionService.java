@@ -33,11 +33,11 @@ public class NotifiactionService implements NotificationServiceInterface{
 		  
 	}
 
-	public Notification findById(int id) {
+	public Notification findById(Long id) {
 		return notificationDao.findOne(id);
 	}
 	
-	public void remove(int id){
+	public void remove(Long id){
 		notificationDao.removeByTripId(id);
 	}
 	

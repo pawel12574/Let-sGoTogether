@@ -14,7 +14,9 @@ import java.util.List;
 import com.packt.web.bean.AbstractTrip;
 import com.packt.web.bean.Trip;
 import com.packt.web.bean.TripSd;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DateService {
 
 	

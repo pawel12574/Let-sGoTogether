@@ -67,7 +67,7 @@ public class TripDao implements TripDaoInterface{
 	}
 	
 	@Transactional
-	public void removeTrip(int id){
+	public void removeTrip(Long id){
 		
 		Trip t= this.getTripById(id);
 		
@@ -82,7 +82,7 @@ public class TripDao implements TripDaoInterface{
 		userRatingService.removeUserRating(id);// where trip.id
 		
 		query = entityManager.createQuery("select c.id from Chat c where trip.id='"+id+"'");
-	    int idChat = query.getFirstResult();
+		Long idChat = (Long)query.getResultList().get(0);
 	    messageService.removeMessageByChatId(idChat);
 		chatService.remove(idChat);
 		notificationService.remove(id);
@@ -150,7 +150,7 @@ public class TripDao implements TripDaoInterface{
 	}
 	
 	@Transactional
-	public Trip getTripById(int id) {
+	public Trip getTripById(Long id) {
 		Trip  trip=null;
 		Query query=entityManager.createQuery("select t from Trip t where id="+id+"");
 		try{
@@ -167,7 +167,7 @@ public class TripDao implements TripDaoInterface{
 	}
 	
     @Transactional
-	public Trip getTripByIdFetchUsers(int id) {
+	public Trip getTripByIdFetchUsers(Long id) {
 		Query query=entityManager.createQuery("select t from Trip t left join fetch t.travelers left join fetch t.user where t.id='"+id+"'");
 		List<Trip> result=query.getResultList();
 		if(!result.isEmpty()){
@@ -183,7 +183,7 @@ public class TripDao implements TripDaoInterface{
 	}
 	
 	@Transactional
-	public boolean isAvaiable(int id){
+	public boolean isAvaiable(Long id){
         Query query=entityManager.createQuery("select t from Trip t where t.id='"+id+"' and t.tripDate>'"+DateService.getCurrentFormatedDate()+"'");
 
 		List<Trip> result=query.getResultList();
@@ -194,7 +194,7 @@ public class TripDao implements TripDaoInterface{
 	}
 	
 	@Transactional
-	public List<User> getUsersInTrip(int id){
+	public List<User> getUsersInTrip(Long id){
 		
 		List<User> result = null;
 		try{

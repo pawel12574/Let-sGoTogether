@@ -40,7 +40,7 @@ public class MessageController {
 	
 	
 	@RequestMapping(value="/chat/get/{id}", method=RequestMethod.GET) //trip id
-	public @ResponseBody List<Message> chatGet(@PathVariable int id ){
+	public @ResponseBody List<Message> chatGet(@PathVariable Long id ){
 		
 		List<Message> result = messageService.getMessage(id);
 		for(Message m:result){//convert Date to String
@@ -55,8 +55,8 @@ public class MessageController {
 		Message msg=new Message();
 		msg.setContents(message.getContents());
 		msg.setAuthor(userService.getLoggedUser());
-		
-	    int tripId = message.getTripId();
+
+		Long tripId = message.getTripId();
 	
 		if(chatService.getChat(message.getTripId())== null){
 		   

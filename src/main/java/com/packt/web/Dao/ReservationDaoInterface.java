@@ -9,7 +9,7 @@ import com.packt.web.bean.User;
 public interface ReservationDaoInterface {
 
 	public void addReservation(Reservation r);
-	public List<Reservation> getReservationByTripId(int id);
+	public List<Reservation> getReservationByTripId(Long id);
 	public void remove(Trip t, User u);
 	public void remove(Reservation r);
 	public void confirm(Reservation r);

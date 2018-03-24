@@ -30,7 +30,7 @@ public class ReservationController {
     TripServiceInterface tripService;
 	
     @RequestMapping(value="/reservation/isConfirmed/{id}", method=RequestMethod.GET)//trip.id
-	public @ResponseBody JsonMessage isConfirmed(@PathVariable int id){
+	public @ResponseBody JsonMessage isConfirmed(@PathVariable Long id){
     	//JSONObject object = new JSONObject();
     	//  object.put("confirmed", "rajesh");
     	JsonMessage m = new JsonMessage();
@@ -49,7 +49,7 @@ public class ReservationController {
 	}
     
     @RequestMapping(value="/reservation/add/{idTrip}", method=RequestMethod.GET)// trip.id
-   	public @ResponseBody ResponseEntity<String> confirm(@PathVariable int idTrip){
+   	public @ResponseBody ResponseEntity<String> confirm(@PathVariable Long idTrip){
    		
     	Trip t = tripService.getTripDetails(idTrip);
     	Reservation r=new Reservation();
@@ -63,14 +63,14 @@ public class ReservationController {
    	}
     
     @RequestMapping(value="/reservation/isUserConfirmed/{idTrip}/{idUser}", method=RequestMethod.GET)//trip.id, user.id
-	public @ResponseBody boolean isUserConfirmed(@PathVariable int idTrip, @PathVariable int idUser){
+	public @ResponseBody boolean isUserConfirmed(@PathVariable Long idTrip, @PathVariable Long idUser){
     	User u = userService.getUser(idUser);
     	Trip t = tripService.getTripDetails(idTrip);
     	return reservationService.isConfirmed(u, t);
 	}
     
     @RequestMapping(value="/reservation/confirm/{idTrip}/{idUser}", method=RequestMethod.GET)// trip.id/user.id
-   	public @ResponseBody ResponseEntity<String> confirm(@PathVariable int idTrip, @PathVariable int idUser){
+   	public @ResponseBody ResponseEntity<String> confirm(@PathVariable Long idTrip, @PathVariable Long idUser){
    		
     	Trip t = tripService.getTripDetails(idTrip);
     	User u = userService.getUser(idUser);
@@ -81,7 +81,7 @@ public class ReservationController {
    	}
     
     @RequestMapping(value="/reservation/remove/{idTrip}", method=RequestMethod.GET)// trip.id
-   	public @ResponseBody ResponseEntity<String> delete(@PathVariable int idTrip){
+   	public @ResponseBody ResponseEntity<String> delete(@PathVariable Long idTrip){
    		
     	Trip t = tripService.getTripDetails(idTrip);
     	User u = userService.getLoggedUser();

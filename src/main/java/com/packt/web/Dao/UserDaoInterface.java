@@ -14,7 +14,7 @@ public interface UserDaoInterface {
 	public void removeUser(User user);
 	public String getLoggedUserName();
 	public User getUser(String login);
-	public User getUser(int id);
+	public User getUser(Long id);
 	public String getEmailByString(String email);
 	public List<Trip> getMyOwnTrip();
 	public void updatePassword(User user);

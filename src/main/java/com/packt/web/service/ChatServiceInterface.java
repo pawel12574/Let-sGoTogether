@@ -9,8 +9,8 @@ import com.packt.web.bean.Chat;
 
 public interface ChatServiceInterface {
 
-	public Chat getChat(int id);
-	public void remove(int chatId);
+	public Chat getChat(Long id);
+	public void remove(Long chatId);
 	public void addChatAndMessage(Chat chat);
 	
 	

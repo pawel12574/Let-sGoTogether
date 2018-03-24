@@ -4,7 +4,7 @@ public class MessageDto {
 
     
 	private String contents;
-	private int tripId;
+	private Long tripId;
 	
 	public String getContents() {
 		return contents;
@@ -12,10 +12,10 @@ public class MessageDto {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public int getTripId() {
+	public Long getTripId() {
 		return tripId;
 	}
-	public void setTripId(int tripId) {
+	public void setTripId(Long tripId) {
 		this.tripId = tripId;
 	}
     

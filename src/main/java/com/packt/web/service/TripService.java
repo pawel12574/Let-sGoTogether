@@ -55,7 +55,7 @@ public class TripService implements TripServiceInterface {
 		return result;
 	}
 
-	public Trip getTripDetails(int id) {
+	public Trip getTripDetails(Long id) {
 		Trip trip=tripDao.getTripById(id);
 		return trip;
 	}
@@ -83,7 +83,7 @@ public class TripService implements TripServiceInterface {
 		return tripDao.isAvaiable(trip.getId());
 	}
 
-	public boolean isUserInTrip(int id) {
+	public boolean isUserInTrip(Long id) {
 	  
 		User user=userService.getLoggedUser();
 		if(tripDao.getUsersInTrip(id).contains(user)){
@@ -97,22 +97,22 @@ public class TripService implements TripServiceInterface {
 		return tripDao.getAllTrip();
 	}
 	
-	public Trip getTripByIdFetchUsers(int id){
+	public Trip getTripByIdFetchUsers(Long id){
 		return tripDao.getTripByIdFetchUsers(id);
 	}
 	
-	public List<User> getTravelers(int id){
+	public List<User> getTravelers(Long id){
 		return tripDao.getUsersInTrip(id);
 	}
 	
-	public void removeTrip(int id, User user) {
+	public void removeTrip(Long id, User user) {
 		Trip trip = tripDao.getTripById(id);
 		if(trip.getUser().getUsername().equals(user.getUsername())){
 			tripDao.removeTrip(trip);
 		}
 	}
 	
-	public void removeTrip(int id) {
+	public void removeTrip(Long id) {
 		tripDao.removeTrip(id);
 	}
 

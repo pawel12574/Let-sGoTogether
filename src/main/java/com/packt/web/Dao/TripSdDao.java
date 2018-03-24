@@ -10,7 +10,6 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.packt.web.bean.Trip;
 import com.packt.web.bean.TripSd;
 import com.packt.web.bean.User;
 import com.packt.web.service.DateService;
@@ -38,7 +37,7 @@ public class TripSdDao implements TripSdDaoInterface {
 		}
 	}
 	
-	public TripSd getTripSdById(int id){
+	public TripSd getTripSdById(Long id){
 		Query query = entityManager.createQuery("select t from TripSd t left join fetch t.user where t.id=" + id + "");
 		List<TripSd> result = query.getResultList();
 		if (!result.isEmpty()) {

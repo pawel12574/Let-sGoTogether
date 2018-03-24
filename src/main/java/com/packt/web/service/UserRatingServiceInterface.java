@@ -7,8 +7,8 @@ public interface UserRatingServiceInterface {
 
 
 	public void addUserRating(UserRating userRating);
-	public void removeUserRating(int id);
+	public void removeUserRating(Long id);
 	public void mergeUser(UserRating userRating);
-	public String getUserRating(int userId);
-	public boolean isRatedByUser(int tripId);
+	public String getUserRating(Long userId);
+	public boolean isRatedByUser(Long tripId);
 }

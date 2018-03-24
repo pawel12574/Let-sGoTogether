@@ -16,12 +16,9 @@ import org.hibernate.annotations.NotFoundAction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class PasswordToken {
+public class PasswordToken extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-  
+
     private String token;
   
     @OneToOne
@@ -37,14 +34,6 @@ public class PasswordToken {
     public PasswordToken(String token, User user) {
 		this.user=user;
 	    this.token=token;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getToken() {

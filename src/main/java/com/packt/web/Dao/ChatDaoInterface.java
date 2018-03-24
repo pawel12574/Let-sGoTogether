@@ -4,7 +4,7 @@ import com.packt.web.bean.Chat;
 
 public interface ChatDaoInterface {
 	
-	public Chat getChatByTripId(int id);
-	public void remove(int chatId);
+	public Chat getChatByTripId(Long id);
+	public void remove(Long chatId);
     public void addChatAndMessage(Chat chat);
 }

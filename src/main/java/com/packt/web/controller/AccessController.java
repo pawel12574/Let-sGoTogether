@@ -100,10 +100,10 @@ public class AccessController {
 		Server server = (Server) context.getBean("serverProperty");
 		
 		String url = server.getServerPath()+"/user/changePassword?id="+user.getId()+"&token="+token+"";
-		emailService.sendMail("eliasz.paw@gmail.com",
+		emailService.sendMail("lgtwipb@gmail.com",
 				               email,
 	    		              "Let'sGoTogether",
-	    		              "Kliknij w link aby zresetowaæ has³o "+url+"");
+	    		              "Kliknij w link aby zresetowaï¿½ hasï¿½o "+url+"");
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 		

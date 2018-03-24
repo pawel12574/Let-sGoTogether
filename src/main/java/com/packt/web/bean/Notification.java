@@ -27,13 +27,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "notification")
-public class Notification implements Serializable {
+public class Notification extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 5011410129693561802L;
-	
-	@Id
-	@GeneratedValue
-	private int id;
 	
 	@OneToOne
 	@NotFound(action = NotFoundAction.IGNORE)
@@ -62,14 +58,6 @@ public class Notification implements Serializable {
 		this.trip = trip;
 		this.confirmed = confirmed;
 		this.informed = informed;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public Trip getTrip() {
@@ -113,26 +101,11 @@ public class Notification implements Serializable {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
+	public String toString() {
+		return "Notification{" +
+				"type='" + type + '\'' +
+				", informed=" + informed +
+				", created=" + created +
+				'}';
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Notification other = (Notification) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-
-	
 }

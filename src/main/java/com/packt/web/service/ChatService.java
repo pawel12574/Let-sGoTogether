@@ -14,12 +14,12 @@ public class ChatService implements ChatServiceInterface {
 	@Autowired
 	ChatDaoInterface chatDao;
 	
-	public Chat getChat(int id) {
+	public Chat getChat(Long id) {
 		return chatDao.getChatByTripId(id);
 		
 	}
 	
-	public void remove(int chatId){
+	public void remove(Long chatId){
 		chatDao.remove(chatId);
 	}
 

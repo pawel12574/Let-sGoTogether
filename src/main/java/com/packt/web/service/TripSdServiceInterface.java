@@ -16,6 +16,6 @@ public interface TripSdServiceInterface {
 	public List<TripSd> getAllUserTrip(User user);
 	public void saveTripSd(TripSd trip) ;
 	public void update(TripSd trip);
-	public void removeTrip(int id, User user);
+	public void removeTrip(Long id, User user);
 	public List<TripSd> getAllTrip(); 
 }

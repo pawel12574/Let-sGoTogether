@@ -38,7 +38,7 @@ public class TaxiDao implements TaxiDaoInterface{
 		   return null;
 	}
 
-	public void remove(int id) {
+	public void remove(Long id) {
 		Query query=entityManager.createQuery("delete from Taxi t where t.id="+id+"");
 		query.executeUpdate();
 	}
@@ -48,7 +48,7 @@ public class TaxiDao implements TaxiDaoInterface{
 		
 	}
 
-	public Taxi getById(int id) {
+	public Taxi getById(Long id) {
 		Query query=entityManager.createQuery("select t from Taxi t where t.id="+id+"");
 		Taxi taxi = (Taxi)query.getSingleResult();
 		if(taxi!=null){

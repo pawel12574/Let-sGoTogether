@@ -8,11 +8,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="reservation")
-public class Reservation {
-	
-	@Id
-	@GeneratedValue
-	private int id;
+public class Reservation extends AbstractEntity{
+
 	
 	@OneToOne
 	private Trip trip;
@@ -26,14 +23,6 @@ public class Reservation {
 	public Reservation() {
 		super();
 		
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public Trip getTrip() {

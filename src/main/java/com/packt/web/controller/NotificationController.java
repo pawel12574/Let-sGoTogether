@@ -61,7 +61,7 @@ public class NotificationController {
 	}
 	
 	@RequestMapping(value="/notification/confirmNotification/{id}", method = RequestMethod.GET)
-	public  ResponseEntity<String>  confirmNotification(@PathVariable int id){
+	public  ResponseEntity<String>  confirmNotification(@PathVariable Long id){
 	
 		Notification notification = notificationService.findById(id);
 		

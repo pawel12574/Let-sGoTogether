@@ -41,7 +41,7 @@ public class TripSdService implements TripSdServiceInterface {
 		
 	}
 
-	public void removeTrip(int id, User user) {
+	public void removeTrip(Long id, User user) {
 		TripSd tripSd = tripSdDao.getTripSdById(id);
 		if(tripSd.getUser().getUsername().equals(user.getUsername())){
 			tripSdDao.removeTripSd(tripSd);

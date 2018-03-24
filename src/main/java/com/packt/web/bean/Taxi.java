@@ -17,12 +17,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="taxi")
-public class Taxi {
-	
-	 @Id
-	 @GeneratedValue
-	 private int id;
-	 
+public class Taxi extends AbstractEntity{
+
+
 	 @NotEmpty
 	 private String phoneNumber;
 	 
@@ -40,14 +37,6 @@ public class Taxi {
 	 public Taxi(){
 		 
 	 }
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;

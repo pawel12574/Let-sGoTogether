@@ -103,7 +103,7 @@ public class TripController {
 	}
 	
 	@RequestMapping(value="/trip/removeUser/{idTrip}", method = RequestMethod.GET)
-	public ResponseEntity<String> removeUser(@PathVariable int idTrip){
+	public ResponseEntity<String> removeUser(@PathVariable Long idTrip){
 		
 		Trip t = tripService.getTripByIdFetchUsers(idTrip);
 		t.getTravelers().remove(userService.getLoggedUser());
@@ -115,7 +115,7 @@ public class TripController {
 	}
 	
 	@RequestMapping(value="/trip/details/{id}", method=RequestMethod.GET) //id Trip
-	public @ResponseBody Trip trip(@PathVariable int id){
+	public @ResponseBody Trip trip(@PathVariable Long id){
 		Trip trip=tripService.getTripDetails(id);
 		if (tripService.isUserInTrip(id) )
 			trip.setIsTripContainsUser(true);
@@ -176,12 +176,12 @@ public class TripController {
 	}
 	
 	@RequestMapping(value="/trip/isUserTraveler/{id}", method=RequestMethod.GET)
-	public @ResponseBody boolean isUserTraveler(@PathVariable int id){ // trip id
+	public @ResponseBody boolean isUserTraveler(@PathVariable Long id){ // trip id
 		return tripService.isUserInTrip(id);
 	}
 	
 	@RequestMapping(value="/trip/travelers/{id}", method=RequestMethod.GET)//allow when trip author, get travelers
-	public @ResponseBody List<User> getTravelers(@PathVariable int id){
+	public @ResponseBody List<User> getTravelers(@PathVariable Long id){
 		Trip trip=tripService.getTripDetails(id);
 		List<User> list = null;
 		try{
@@ -207,7 +207,7 @@ public class TripController {
 	}
 	
 	@RequestMapping(value="/trip/remove/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<String> remove(@PathVariable int id){
+	public ResponseEntity<String> remove(@PathVariable Long id){
 		if(SecurityContextHolder.getContext().getAuthentication().getAuthorities().size()>1)//if list of priviliges>1(ROLE_ADMIN)
 			tripService.removeTrip(id);
 		else

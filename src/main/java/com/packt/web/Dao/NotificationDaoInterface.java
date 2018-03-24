@@ -13,8 +13,8 @@ public interface NotificationDaoInterface {
 	public List<Notification> getNotificationForTripChange(User user);
 	public List<Notification> getNonConfirmedNotificationForTripChange(User user);
 	public List<Notification> getAllNotification(User user);
-	public Notification findOne(int id);
-	public void removeByTripId(int id);
+	public Notification findOne(Long  id);
+	public void removeByTripId(Long id);
 	public void remove(Notification n);
 	public void save(Notification notification);
 	public void merge(Notification notification);

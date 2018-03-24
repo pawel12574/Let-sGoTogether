@@ -23,11 +23,11 @@ public interface TripServiceInterface {
 	
 	public List<Trip> findTripByCoordinatesAndDate(String fromLat, String fromLng, String toLat, String toLng, String rangeFrom, String rangeTo, String date);
 	
-	public Trip getTripDetails(int id);
+	public Trip getTripDetails(Long id);
 	
-	public List<User> getTravelers(int id);
+	public List<User> getTravelers(Long id);
 	
-	public Trip getTripByIdFetchUsers(int id);
+	public Trip getTripByIdFetchUsers(Long id);
 
 	public List<Trip> getAllUserTrip(User user);
 	
@@ -37,7 +37,7 @@ public interface TripServiceInterface {
 	
 	public boolean isAvailable(Trip trip);
 	
-	public boolean isUserInTrip(int id); //trip.id
+	public boolean isUserInTrip(Long id); //trip.id
 	
 	public List<Trip> getAllTrip();
 	
@@ -45,8 +45,8 @@ public interface TripServiceInterface {
 
 	public void confirmReservation(Reservation r);
 	
-	public void removeTrip(int id, User user); 
+	public void removeTrip(Long id, User user);
 	
-	public void removeTrip(int id);
+	public void removeTrip(Long id);
 
 }

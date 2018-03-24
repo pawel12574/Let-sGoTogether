@@ -22,11 +22,11 @@ public class TaxiService implements TaxiServiceInterface{
 		return taxiDao.getAll();
 	}
 
-	public Taxi getById(int id) {
+	public Taxi getById(Long id) {
 		return taxiDao.getById(id);
 	}
 
-	public void remove(int id) {
+	public void remove(Long id) {
 		taxiDao.remove(id);
 	}
 

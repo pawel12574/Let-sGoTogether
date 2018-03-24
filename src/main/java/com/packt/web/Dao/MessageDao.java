@@ -19,7 +19,7 @@ public class MessageDao implements MessageDaoInterface {
 	private EntityManager entityManager;
 	
 	@Transactional
-	public List<Message> getMessageByTrip(int id) {
+	public List<Message> getMessageByTrip(Long id) {
 		Query query=entityManager.createQuery("select c.messages from Chat c, Trip t WHERE t.id='"+id+"' and c.id=t.chat.id");
 		List<Message> result = query.getResultList();
 		return result;
@@ -27,7 +27,7 @@ public class MessageDao implements MessageDaoInterface {
 	}
 	
 	@Transactional
-	public Message getMessageById(int id) {
+	public Message getMessageById(Long id) {
 		Query query=entityManager.createQuery("select m from Message m WHERE m.id='"+id+"'");
 		List<Message> result = query.getResultList();
 		if(!result.isEmpty())
@@ -38,7 +38,7 @@ public class MessageDao implements MessageDaoInterface {
 	}
 	
 	@Transactional
-	public void removeMessage(int id) {
+	public void removeMessage(Long id) {
 		Query query=entityManager.createQuery("delete Message where chat.id='"+id+"'");
 		query.executeUpdate();
 		

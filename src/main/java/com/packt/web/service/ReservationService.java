@@ -31,7 +31,7 @@ public class ReservationService implements ReservationServiceInterface {
 			return false;
 	}
 
-	public List<Reservation> getReservationByTripId(int id){
+	public List<Reservation> getReservationByTripId(Long id){
 		return reservationDao.getReservationByTripId(id);
 	}
 	

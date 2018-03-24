@@ -25,7 +25,7 @@ public class UserRatingService implements UserRatingServiceInterface {
 		userRatingDao.addUser(userRating);
 	}
 	
-	public void removeUserRating(int id){
+	public void removeUserRating(Long id){
 		userRatingDao.removeUserRating(id);
 	}
 
@@ -37,12 +37,12 @@ public class UserRatingService implements UserRatingServiceInterface {
 	}
 
 	
-	public String getUserRating(int userId) {
+	public String getUserRating(Long userId) {
 		
 		return userRatingDao.getUserRating(userId);
 	}
 	
-	public boolean isRatedByUser(int tripId){
+	public boolean isRatedByUser(Long tripId){
 		
 		return userRatingDao.isRatedByUser(tripId, userService.getLoggedUser().getId());
 	}

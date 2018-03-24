@@ -23,16 +23,12 @@ import java.util.Set;
 
 @MappedSuperclass
 @Table(name = "Trip")
-public abstract class AbstractTrip implements Serializable{
+public abstract class AbstractTrip extends AbstractEntity implements Serializable{
 
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "IDTRIP")
-	private int id;
-	
+
 	@NotEmpty
 	@Column(name = "FROMLAT")
 	private String fromLat;
@@ -60,11 +56,7 @@ public abstract class AbstractTrip implements Serializable{
 	@NotNull
 	@Column(name = "FREESEAT")
 	private int freeSeat;
-   
-	@CreationTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
-    private Date created;
+
 	
 	@Transient
 	private String createdDate; //formated created(frontend)
@@ -92,14 +84,6 @@ public abstract class AbstractTrip implements Serializable{
         this.toLng=toLng;
      }
 
-	
-    public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getFromPlace() {
 		return fromPlace;
@@ -172,15 +156,7 @@ public abstract class AbstractTrip implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public Date getCreated() {
-		return created;
-	}
 
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-	
 	public String getCreatedDate() {
 		return createdDate;
 	}
@@ -190,24 +166,11 @@ public abstract class AbstractTrip implements Serializable{
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AbstractTrip other = (AbstractTrip) obj;
-		if (id != other.id)
-			return false;
-		return true;
+	public String toString() {
+		return "AbstractTrip{" +
+				"fromPlace='" + fromPlace + '\'' +
+				", toPlace='" + toPlace + '\'' +
+				", createdDate='" + createdDate + '\'' +
+				'}';
 	}
 }
