@@ -1,6 +1,5 @@
 package com.packt.web.Dao;
 
-import java.text.ParseException;
 import java.util.List;
 
 import com.packt.web.bean.Trip;
@@ -14,7 +13,7 @@ public interface TripDaoInterface {
 	public void removeTrip(Long id);
 	public void mergeTrip(Trip trip);
 	public List<User> getUsersInTrip(Long id);
-	public List<Trip> getAllUserTrip(User user);
+	public List getAllUserTrip(User user);
 	public List<Trip> getTripUserTravel();
 	public List<Trip> getTripByFromTo(String a, String b);
 	public List<Trip> getTripByCoordinates(String fromLat, String fromLng, String toLat, String toLng, String rangeFrom, String rangeTo);
